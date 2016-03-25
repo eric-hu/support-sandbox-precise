@@ -5,4 +5,5 @@ machine:
 dependencies:
   pre:
     - gem install bundler -v '1.10.6'
+    - gem regenerate_binstubs
     - bundle --version
