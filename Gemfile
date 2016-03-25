@@ -1,2 +1,3 @@
 source "https://rubygems.org"
-ruby "2.1.5"
+
+gem "bundler", "1.10.6"
