@@ -5,7 +5,7 @@ machine:
 dependencies:
   pre:
     - bundle --version
-    - rvm all-gemsets do "echo Y | gem uninstall bundler"
+    - rvm all-gemsets do gem uninstall bundler --executables
     - which bundle
     - gem install bundler -v '1.10.6'
     - bundle --version
