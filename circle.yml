@@ -1,11 +1,13 @@
-machine:
-  ruby:
-    version: 2.2.0
+#machine:
+  #pre:
+    #- sudo service mysql stop
 
-dependencies:
-  pre:
-    - bundle --version
-    - rvm all-gemsets do gem uninstall bundler --executables
-    - which bundle
-    - gem install bundler -v '1.10.6'
-    - bundle --version
+#checkout:
+  #override:
+    #- git pull --all --unshallow
+
+test:
+  override:
+    - exit 0
+  post:
+    - heroku plugins:install heroku-builds
