@@ -28,4 +28,4 @@ dependencies:
 
 test:
   override:
-    - rspec --format NyanCatFormatter
+    - rspec
