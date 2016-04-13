@@ -10,7 +10,21 @@ test:
   override:
     - exit 0
 deployment:
-  pre:
-    branch: master
-    commands:
-      - exit 0
+    production:
+        branch: master
+        codedeploy:
+            piinpoint:
+                deployment_group: piinpoint
+    staging:
+        branch: docker
+        codedeploy:
+            piinpoint:
+                deployment_group: piinpoint-staging
+                application_root: /
+                revision_location:
+                    revision_type: S3
+                    s3_location:
+                        bucket: piinpoint
+                        key_pattern: apps/piinpoint-{SHORT_COMMIT}-{BUILD_NUM}
+                    region: us-east-1
+                deployment_config: CodeDeployDefault.AllAtOnce
