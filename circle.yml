@@ -1,30 +1,31 @@
-#machine:
-  #pre:
-    #- sudo service mysql stop
-
-#checkout:
-  #override:
-    #- git pull --all --unshallow
+dependencies:
+  override:
+    # Some rarer yaml syntax allows for more readable circle.yml files
+    # with multi-step lines (bypassing Circle's lock-step)
+    #
+    # http://www.yaml.org/spec/1.2/spec.html
+    - ? |
+        case $CIRCLE_NODE_INDEX in
+          0)
+            rvm-exec 2.0.0-p645 gem install bundler
+            rvm-exec 2.0.0-p645 bundle install --path=vendor
+            ;;
+          1)
+            rvm-exec 2.1.9 gem install bundler
+            rvm-exec 2.1.9 bundle install --path=vendor
+            ;;
+          2)
+            rvm-exec 2.3.0 gem install bundler
+            rvm-exec 2.3.0 bundle install --path=vendor
+            ;;
+          3)
+            rvm-exec rbx-2.2.10 gem install bundler
+            rvm-exec rbx-2.2.10 bundle install --path=vendor
+            ;;
+        esac
+      :
+        parallel: true
 
 test:
   override:
-    - exit 0
-deployment:
-    production:
-        branch: master
-        codedeploy:
-            piinpoint:
-                deployment_group: piinpoint
-    staging:
-        branch: docker
-        codedeploy:
-            piinpoint:
-                deployment_group: piinpoint-staging
-                application_root: /
-                revision_location:
-                    revision_type: S3
-                    s3_location:
-                        bucket: piinpoint
-                        key_pattern: apps/piinpoint-{SHORT_COMMIT}-{BUILD_NUM}
-                region: us-east-1
-                deployment_config: CodeDeployDefault.AllAtOnce
+    - rspec --format NyanCatFormatter
