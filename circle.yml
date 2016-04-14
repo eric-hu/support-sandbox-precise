@@ -1,10 +1,5 @@
-machine:
-  node:
-    version: 5.7.0
-
 dependencies:
   post:
-    - sudo chmod +w /home/ubuntu/.heroku -R
     - sudo apt-get purge heroku-toolbelt
     - sudo apt-get install heroku-toolbelt
     - heroku plugins:install heroku-builds
