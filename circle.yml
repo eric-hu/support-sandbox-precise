@@ -1,6 +1,11 @@
 dependencies:
-  override:
+  node:
+    version: 5.7.0
+
+  post:
+    - sudo chmod +w /home/ubuntu/.heroku -R
     - heroku update
+    - heroku plugins:install heroku-builds
 
 test:
   override:
