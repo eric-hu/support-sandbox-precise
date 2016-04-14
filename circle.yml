@@ -1,7 +1,8 @@
-dependencies:
+machine:
   node:
     version: 5.7.0
 
+dependencies:
   post:
     - sudo chmod +w /home/ubuntu/.heroku -R
     - heroku update
