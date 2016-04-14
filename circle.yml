@@ -4,8 +4,7 @@ machine:
 
 dependencies:
   pre:
-    - bundle --version
-    - rvm all-gemsets do gem uninstall bundler --executables
-    - which bundle
-    - gem install bundler -v '1.10.6'
-    - bundle --version
+    - rvm install rubygems 2.4.8 --force
+    - gem install bundler --pre
+    - gem -v
+    - bundle -v
