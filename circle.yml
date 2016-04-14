@@ -5,7 +5,7 @@ machine:
 dependencies:
   post:
     - sudo chmod +w /home/ubuntu/.heroku -R
-    - heroku update
+    - sudo apt-get install heroku-toolbelt
     - heroku plugins:install heroku-builds
 
 test:
