@@ -5,7 +5,7 @@ machine:
 dependencies:
   post:
     - sudo chmod +w /home/ubuntu/.heroku -R
-    - sudo apt-get remove heroku-toolbelt
+    - sudo apt-get purge heroku-toolbelt
     - sudo apt-get install heroku-toolbelt
     - heroku plugins:install heroku-builds
 
