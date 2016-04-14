@@ -1,31 +1,7 @@
 dependencies:
   override:
-    # Some rarer yaml syntax allows for more readable circle.yml files
-    # with multi-step lines (bypassing Circle's lock-step)
-    #
-    # http://www.yaml.org/spec/1.2/spec.html
-    - ? |
-        case $CIRCLE_NODE_INDEX in
-          0)
-            rvm-exec 2.0.0-p645 gem install bundler
-            rvm-exec 2.0.0-p645 bundle install --path=vendor
-            ;;
-          1)
-            rvm-exec 2.1.9 gem install bundler
-            rvm-exec 2.1.9 bundle install --path=vendor
-            ;;
-          2)
-            rvm-exec 2.3.0 gem install bundler
-            rvm-exec 2.3.0 bundle install --path=vendor
-            ;;
-          3)
-            rvm-exec rbx-2.2.10 gem install bundler
-            rvm-exec rbx-2.2.10 bundle install --path=vendor
-            ;;
-        esac
-      :
-        parallel: true
+    - heroku update
 
 test:
   override:
-    - rspec
+    - exit 0
