@@ -5,7 +5,7 @@ dependencies:
     - sudo apt-get purge heroku-toolbelt
     - which heroku || true
     - ls ~/.heroku || true
-    - rm ~/.heroku
+    - rm -rf ~/.heroku
     - sudo apt-get install heroku-toolbelt
     - heroku plugins:install heroku-builds
 
