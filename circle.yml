@@ -3,6 +3,8 @@ dependencies:
     - id
     - which heroku
     - sudo apt-get purge heroku-toolbelt
+    - which heroku || true
+    - ls ~/.heroku || true
     - sudo apt-get install heroku-toolbelt
     - heroku plugins:install heroku-builds
 
