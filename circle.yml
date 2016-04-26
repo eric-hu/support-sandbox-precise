@@ -7,8 +7,9 @@ dependencies:
     - rvm install 2.1.9
     - cd ~/rvm_binaries && rvm prepare 2.1.9
 
+
   cache_directories:
-    - ~/.rvm
+    - ~/rvm_binaries
 
 test:
   override:
