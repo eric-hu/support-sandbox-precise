@@ -1,6 +1,14 @@
 dependencies:
-  post:
-    - sudo apt-get update
+  override:
+    #- curl -sSL https://ftp.ruby-lang.org/pub/ruby/ruby-2.1.9.tar.bz2 -o ruby-2.1.9.tar.bz2
+    #- mv ruby-2.1.9.tar.bz2 $rvm_path/archives/
+    - mkdir ~/.rvm || true
+    - cp ~/.rvm/ruby-2.1.9.tar.bz2 $rvm_path/archives || true
+    - rvm install 2.1.9
+    - cd ~/.rvm && rvm prepare 2.1.9
+
+  cache_directories:
+    - ~/.rvm
 
 test:
   override:
