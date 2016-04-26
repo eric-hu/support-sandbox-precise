@@ -1,13 +1,7 @@
 dependencies:
   post:
-    - id
-    - which heroku
-    - sudo apt-get purge heroku-toolbelt
-    - which heroku || true
-    - ls ~/.heroku || true
-    - rm -rf ~/.heroku
-    - sudo apt-get install heroku-toolbelt
-    - heroku plugins:install heroku-builds
+    - gem update --system
+    - gem -v
 
 test:
   override:
