@@ -1,7 +1,6 @@
 dependencies:
   post:
-    - gem update --system 2.6.3
-    - gem -v
+    - sudo apt-get update
 
 test:
   override:
