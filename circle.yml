@@ -1,6 +1,6 @@
 dependencies:
   post:
-    - gem update --system
+    - gem update --system 2.6.3
     - gem -v
 
 test:
