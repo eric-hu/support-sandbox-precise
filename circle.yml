@@ -4,6 +4,7 @@ dependencies:
     #- mv ruby-2.1.9.tar.bz2 $rvm_path/archives/
     - mkdir ~/rvm_binaries || true
     #- cp ~/rvm_binaries/ruby-2.1.9.tar.bz2 $rvm_path/archives || true
+    - rvm mount ~/rvm_binaries/ruby-2.1.9.tar.bz2
     - rvm install 2.1.9
     - cd ~/rvm_binaries && rvm prepare 2.1.9
     - ls ~/rvm_binaries
