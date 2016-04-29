@@ -11,11 +11,13 @@ dependencies:
         cd ~/rvm_binaries && rvm prepare 2.1.9
         ls ~/rvm_binaries
       fi
-
+    - rvm default 2.1.9
 
   cache_directories:
     - ~/rvm_binaries
 
 test:
   override:
+    - gem list
+    - ruby --version
     - exit 0
