@@ -20,4 +20,5 @@ test:
   override:
     - gem list
     - ruby --version
+    - bundle exec ruby --version
     - exit 0
