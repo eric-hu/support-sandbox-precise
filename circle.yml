@@ -1,20 +1,26 @@
-dependencies:
+machine:
   pre:
-    - |
-      if [[ -e ~/rvm_binaries/ruby-2.3.1.tar.bz2 ]]
-      then
-        rvm mount ~/rvm_binaries/ruby-2.3.1.tar.bz2
-      else
-        mkdir ~/rvm_binaries || true
-        rvm install 2.3.1
-        gem install bundler
-        cd ~/rvm_binaries && rvm prepare 2.3.1
-        ls ~/rvm_binaries
-      fi
-    - rvm --default use 2.3.1
+    - rvm mount -r https://s3.amazonaws.com/erichu/ruby-2.3.1.tar.bz2
+  ruby:
+    version: 2.3.1
 
-  cache_directories:
-    - ~/rvm_binaries
+#dependencies:
+  #pre:
+    #- |
+      #if [[ -e ~/rvm_binaries/ruby-2.3.1.tar.bz2 ]]
+      #then
+        #rvm mount ~/rvm_binaries/ruby-2.3.1.tar.bz2
+      #else
+        #mkdir ~/rvm_binaries || true
+        #rvm install 2.3.1
+        #gem install bundler
+        #cd ~/rvm_binaries && rvm prepare 2.3.1
+        #ls ~/rvm_binaries
+      #fi
+    #- rvm --default use 2.3.1
+
+  #cache_directories:
+    #- ~/rvm_binaries
 
 test:
   override:
