@@ -1,8 +1,6 @@
 machine:
-  pre:
-    - rvm mount -r https://s3.amazonaws.com/circle-downloads/rubies/binaries/ubuntu/12.04/x86_64/ruby-2.3.1.tar.bz2
-  ruby:
-    version: 2.3.1
+  java:
+    version: oraclejdk6
 
 #dependencies:
   #pre:
@@ -24,7 +22,4 @@ machine:
 
 test:
   override:
-    - gem list
-    - ruby --version
-    - bundle exec ruby --version
     - exit 0
